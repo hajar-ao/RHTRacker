@@ -1,0 +1,87 @@
+{% extends 'navbar.html.twig' %}
+
+{% block title %}Afficher Employée{% endblock %}
+
+{% block body %}
+<br><br>
+ <div class="row">
+<div class="col-md-5 col-xl-12">
+                       
+							<div class="card ">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Afficher Employée</h5>
+								</div>
+ 
+<div class="card-body h-100">
+    <table class="table">
+        <tbody>
+            
+            <tr>
+                <th>Cin</th>
+                <td>{{ employe.Cin }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ employe.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ employe.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Cnss</th>
+                <td>{{ employe.Cnss }}</td>
+            </tr>
+            <tr>
+                <th>Situation Famillial</th>
+                <td>{{ employe.SituationFam }}</td>
+            </tr>
+            <tr>
+                <th>Nombre Enfant</th>
+                <td>{{ employe.NombreEnfant }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ employe.Email }}</td>
+            </tr>
+            <tr>
+                <th>Tele</th>
+                <td>{{ employe.tele }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ employe.Adresse }}</td>
+            </tr>
+            <tr>
+                <th>Date Naissance</th>
+                <td>{{ employe.DateNaiss ? employe.DateNaiss|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date Entrée</th>
+                <td>{{ employe.DateEntree ? employe.DateEntree|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date Sortie</th>
+                <td>{{ employe.dateSortie ? employe.dateSortie|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Statue Travaille</th>
+                <td>{{ employe.StatueTravaille ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Echelle</th>
+                <td>{{ employe.Echelle }}</td>
+            </tr>
+            <tr>
+                <th>Echellon</th>
+                <td>{{ employe.Echellon }}</td>
+            </tr>
+        </tbody>
+    </table>
+<div></div></div></div>
+
+    <a href="{{ path('app_retraiter_edit', {'id': employe.id}) }}">edit</a>
+
+    {{ include('retraiter/_delete_form.html.twig') }}
+{% endblock %}
