@@ -38,20 +38,32 @@ class EmployeRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
-    /**
-     * @return Employe[] Returns an array of Employe objects
+     /**
+     * 
+     * @return int
      */
-    public function findByStatue($statue): array
+    public function CountByIdEmploye()
     {
         return $this->createQueryBuilder('e')
-            ->andWhere('e.statuetravaille = :1')
-            ->setParameter('statuetravaille', $statue)
-            ->getQuery()
-            ->getResult()
+    
+        ->select('count(e.id)')
+        ->getQuery()
+        ->getSingleScalarResult()
         ;
-  }
- 
+    }
+    /**
+     * 
+     * @return int
+     */
+    public function CountByIdRetraiter()
+    {
+        return $this->createQueryBuilder('e')
+    
+        ->select('count(e.id)')
+        ->getQuery()
+        ->getSingleScalarResult()
+        ;
+    }
 
 
    
