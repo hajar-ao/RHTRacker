@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EmployeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -62,6 +64,15 @@ class Employe
     #[ORM\Column(length: 255)]
     private ?string $Echellon = null;
 
+    #[ORM\OneToMany(mappedBy: 'employe', targetEntity: Attestation::class)]
+    private Collection $Attestation;
+
+    public function __construct()
+    {
+        $this->Attestation = new ArrayCollection();
+    }
+
+ 
     public function getId(): ?int
     {
         return $this->id;
@@ -206,7 +217,7 @@ class Employe
 
     public function setDateEntree(\DateTimeInterface $DateEntree): self
     {
-        $this->DateEntrée = $DateEntree;
+        $this->DateEntree = $DateEntree;
 
         return $this;
     }
@@ -258,4 +269,38 @@ class Employe
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Attestation>
+     */
+    public function getAttestation(): Collection
+    {
+        return $this->Attestation;
+    }
+
+    public function addAttestation(Attestation $attestation): self
+    {
+        if (!$this->Attestation->contains($attestation)) {
+            $this->Attestation->add($attestation);
+            $attestation->setEmploye($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAttestation(Attestation $attestation): self
+    {
+        if ($this->Attestation->removeElement($attestation)) {
+            // set the owning side to null (unless already changed)
+            if ($attestation->getEmploye() === $this) {
+                $attestation->setEmploye(null);
+            }
+        }
+
+        return $this;
+    }
+
+   
+
+   
 }

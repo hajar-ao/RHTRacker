@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'navbar.html.twig' %}
 
 {% block title %}Register{% endblock %}
 
@@ -6,16 +6,35 @@
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-
-    <h1>Register</h1>
-
+<style>
+.center_div{
+    margin: 0 auto;
+    width:50% ;/* value of your choice which suits your alignment */
+    background:white;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   
+}
+</style>
+   
+<div class="container center_div">
+							<div class="card-body">
+								<div class="m-sm-4">
+                                 <h4>Register</h4>
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
+        {{ form_row(registrationForm.email,{'attr':{'class':'form-control'}}) }}
+         {{ form_row(registrationForm.Nom,{'attr':{'class':'form-control'}}) }}
+          {{ form_row(registrationForm.Prenom,{'attr':{'class':'form-control'}}) }}
+          {{ form_row(registrationForm.Fonction,{'attr':{'class':'form-control'}}) }}
+          {{ form_row(registrationForm.Departement,{'attr':{'class':'form-control'}}) }}
+        {{ form_row(registrationForm.plainPassword,{'attr':{'class':'form-control'}}, {
             label: 'Password'
         }) }}
+        
+        {{ form_row(registrationForm.roles,{'attr':{'class':'form-control'}}) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn btn-warning">Register</button>
     {{ form_end(registrationForm) }}
+    </div>
+    </div></div>
 {% endblock %}

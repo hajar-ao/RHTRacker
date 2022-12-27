@@ -1,0 +1,88 @@
+{{ form_start(form) }}
+
+    
+ <div class="row">
+						<div class="col-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Information Personnel</h5>
+								</div>
+
+								<div class="card-body">
+                                 {{ form_row(form.Cin,{'attr':{'class':'form-control'}})}} 
+								<br>
+                              {{ form_row(form.Nom,{'attr':{'class':'form-control'}})}}
+                              <br>
+                              {{ form_row(form.Prenom,{'attr':{'class':'form-control'}},{
+                                   label: "Prénom"
+                              }) }}
+                              <br>
+                               {{ form_row(form.Adresse,{'attr':{'class':'form-control'}},{
+                                   label: "Adresse"
+                              }) }}
+                              <br>
+                               {{ form_row(form.SituationFam,{'attr':{'class':'form-control'}},{
+                                   label: "Situation Familiale"
+                              }) }}
+                              <br>
+                               {{ form_row(form.NombreEnfant,{'attr':{'class':'form-control'}},{
+                                   label: "Nombre Enfant"
+                              }) }}
+                              <br>
+                             {{ form_row(form.Email,{'attr':{'class':'form-control'}},{
+                                   label: "Email"
+                              }) }}
+                              <br>
+                               {{ form_row(form.tele,{'attr':{'class':'form-control'}},{
+                                   label: "Téléphone"
+                              }) }}
+                              <br>
+                                  {{ form_row(form.DateNaiss,{'attr':{'class':'form-control'}},{
+                                   label: "Date Naissance"
+                              }) }}
+                               <br>
+                                </div>
+                                </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+							<div class="card">
+								<div class="card-header">
+									<h5 class="card-title mb-0">Information du Poste</h5>
+								</div>
+								<div class="card-body">
+                            {{ form_row(form.Echelle,{'attr':{'class':'form-control'}},{
+                                   label: "Echelle"
+                              }) }}
+                               <br>
+                           
+                               {{ form_row(form.Cnss,{'attr':{'class':'form-control'}},{
+                                   label: "Cnss Ou CNOPS"
+                              }) }}
+                               <br>
+                               {{ form_row(form.DateEntree,{'attr':{'class':'form-control'}},{
+                                   label: "Date Entrée"
+                              }) }}<br>
+                                  {{ form_row(form.dateSortie,{'attr':{'class':'form-control'}},{
+                                   label: "Date Sortie Si Vous ete un retraiter"
+                              }) }}
+                               <br>
+                               <br>
+                                  {{ form_row(form.StatueTravaille,{'attr':{'class':'form-check'}},{
+                                   label: "Statue de Travaille"
+                              }) }}             
+                               <br>
+                                  {{ form_row(form.Echellon,{'attr':{'class':'form-control'}},{
+                                   label: "Echellon"
+                              }) }}              <br>
+                                {# {{ form_row(form.Photos,{'attr':{'class':'form-control'}},{
+                                   label: "Photos"
+                              }) }}              <br> #}
+                                </div>
+                                </div>
+                               </div>  
+                                      <div class="card-body text-center">
+									<div class="mb-3">
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+
+    </div></div>
+{{ form_end(form) }}

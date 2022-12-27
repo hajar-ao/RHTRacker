@@ -1,0 +1,58 @@
+{% extends 'navUser.html.twig' %}
+
+{% block title %}Attestation{% endblock %}
+
+{% block body %}
+   <style>
+.center_div{
+    margin: 0 auto;
+    width:50% ;/* value of your choice which suits your alignment */
+    background:white;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   
+}
+</style>
+<div class="container center_div">
+							<div class="card-body">
+								<div class="m-sm-4">
+                                <center><u>
+                                 <h3>Détails</h3></u></center>
+<br>
+    <table class="table">
+        <tbody>
+            
+            <tr>
+                <th>Type Attestation</th>
+                <td>{{ attestation.TypeAttestation }}</td>
+            </tr>
+            <tr>
+                <th>Date Demande</th>
+                <td>{{ attestation.DateDemmande ? attestation.DateDemmande|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                {# <td>{{ attestation.Statue ? 'Valide' : 'En cours' }}</td> #}
+                <td>
+                {% if((attestation.Statue)=="Yes") %}
+                <svg style="color:green;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
+  <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+  <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+</svg>
+                  <!--  <i class="align-middle me-2" data-feather="eye"></i>-->
+                {% else %}
+                    <svg style="color:red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-x" viewBox="0 0 16 16">
+  <path d="M6.146 7.146a.5.5 0 0 1 .708 0L8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 0 1 0-.708z"/>
+  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+</svg>
+             <!-- <i class="align-middle me-2" data-feather="lock"></i>-->
+                
+                {% endif %}</td>
+            </tr>
+             
+        </tbody>
+    </table>
+
+    </div>
+    </div></div>
+{% endblock %}

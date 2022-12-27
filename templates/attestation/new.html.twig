@@ -1,0 +1,27 @@
+{% extends 'navUser.html.twig' %}
+
+{% block title %}RH Tracker{% endblock %}
+
+{% block body %}
+   
+   <style>
+.center_div{
+    margin: 0 auto;
+    width:50% ;/* value of your choice which suits your alignment */
+    background:white;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   
+}
+</style>
+<div class="container center_div">
+							<div class="card-body">
+								<div class="m-sm-4">
+                                 <h4>Demande des pièces</h4>
+<br>
+
+
+    {{ include('attestation/_form.html.twig') }}
+
+</div>
+    </div></div>
+{% endblock %}

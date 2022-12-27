@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+
+    <p> Nom Complet:  {{app.user.Nom}} {{app.user.prenom}}</p></center><br>
+    {{ form_row(form.TypeAttestation,{'attr':{'class':'form-control'}})}} 
+								<br>
+  {# {{ form_row(form.Nom,{'attr':{'class':'form-control'}})}} <br>
+  {{ form_row(form.Prenom,{'attr':{'class':'form-control'}})}} <br> #}
+    <button class="btn btn-warning">{{ button_label|default('Demandée') }}</button>
+{{ form_end(form) }}

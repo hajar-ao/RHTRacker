@@ -13,11 +13,15 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         {% endblock %}
 
         {% block javascripts %}
+        <script src="https://kit.fontawesome.com/421830358d.js" crossorigin="anonymous"></script>
             {{ encore_entry_script_tags('app') }}
             <script src="{{asset("assets/js/jquery.min.js")}}"></script>
   <script src="{{asset("assets/js/popper.js")}}"></script>
@@ -27,8 +31,8 @@
     </head>
     <body>
     
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#F4F4F9;">
-  <a class="navbar-brand" href="{{path('app_index_page')}}" style="font-family: 'Dancing Script', cursive;">RHTracker</a>
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-white rounded"  style="background-color:#EDF2F4;">
+  <img src="{{asset("assets/images/IconNav.png")}}" style="width:4%;"/><a class="navbar-brand" href="{{path('dashboard')}}" style="font-family: 'Pacifico', cursive;">RHTracker</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -40,41 +44,36 @@
           Employée
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{path('app_retraiter_index')}}">Liste des employe</a>
+          <a class="dropdown-item" href="{{path('app_employe_index')}}">Liste des employe</a>
            <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{path('app_retraiter_new')}}">Nouveau Employée</a>
+          <a class="dropdown-item" href="{{path('app_employe_new')}}">Nouveau Employée</a>
         </div>
       </li>
      
        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Retraités
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ path('app_retraiter') }}">Liste des Retraités</a>
-        </div>
+          <li class="nav-item ">
+        <a class="nav-link" href="{{ path('app_Empretraiter') }}">Retraités <span class="sr-only">(current)</span></a>
       </li>
+        
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Piéces Adminitratifs
+        <a class="nav-link"  href="{{ path('app_employe_ListeTravaille') }}" >
+          liste des Piéces Adminitratifs<span class="sr-only">(current)</span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Attestation du travaille</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Attestation de salaire</a>
-        </div>
+      </li>
+       <li class="nav-item ">
+        <a class="nav-link" href="{{ path('app_register') }}">Register <span class="sr-only">(current)</span></a>
       </li>
       
     </ul>
-         
+        
     <form class="form-inline my-2 my-lg-0">
     <ul class="navbar-nav mr-auto">
  <li class="nav-item dropdown">
-        <a style="margin-left:-10%;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         {{app.user.email}} 
+        <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <b>Admin:</b>  {{app.user.Nom}} {{app.user.Prenom}} 
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ path('app_logout') }}">logOut</a>
+          <a class="dropdown-item" href="{{ path('app_logout') }}">Se Déconnecter</a>
         </div>
       </li>
     </ul>

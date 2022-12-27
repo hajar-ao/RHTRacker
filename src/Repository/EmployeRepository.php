@@ -21,7 +21,7 @@ class EmployeRepository extends ServiceEntityRepository
         parent::__construct($registry, Employe::class);
     }
 
-    public function save(Employe $entity, bool $flush = false): void
+    public function save(Employe $entity, bool $flush = true): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,6 +30,15 @@ class EmployeRepository extends ServiceEntityRepository
         }
     }
 
+    // public function add(Patient $entity, bool $flush = true): void
+    // {
+    //     $this->_em->persist($entity);
+    //     if ($flush) {
+    //         $this->_em->flush();
+    //     }
+    // }
+
+   
     public function remove(Employe $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -51,19 +60,7 @@ class EmployeRepository extends ServiceEntityRepository
         ->getSingleScalarResult()
         ;
     }
-    /**
-     * 
-     * @return int
-     */
-    public function CountByIdRetraiter()
-    {
-        return $this->createQueryBuilder('e')
     
-        ->select('count(e.id)')
-        ->getQuery()
-        ->getSingleScalarResult()
-        ;
-    }
 
 
    

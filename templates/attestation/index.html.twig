@@ -1,0 +1,65 @@
+{% extends 'navUser.html.twig' %}
+
+{% block title %}RH Tracker{% endblock %}
+
+{% block body %}
+   
+   
+<div class="row">
+<div class="col-md-5 col-xl-12">
+                       
+							<div class="card ">
+								<div class="card-header">
+
+									<h5 class="card-title mb-0">Demande des piéces administratif</h5>
+								</div>
+ 
+<div class="card-body h-100">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Type Attestation</th>
+                <th>Date Demande</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for attestation in attestations %}
+            <tr>
+                <td>{{ attestation.id }}</td>
+                <td>{{ attestation.TypeAttestation }}</td>
+                <td>{{ attestation.DateDemmande ? attestation.DateDemmande|date('Y-m-d') : '' }}</td>
+                {# <td>{{ attestation.Statue ? 'Validé' : 'En cours' }}</td> #}
+                <td>{% if((attestation.Statue)=="Yes") %}
+                <svg style="color:green;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+</svg>
+                  <!--  <i class="align-middle me-2" data-feather="eye"></i>-->
+                {% else %}
+                    <svg style="color:red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+</svg>
+             <!-- <i class="align-middle me-2" data-feather="lock"></i>-->
+                
+                {% endif %}</td>
+                <td>
+                    <a href="{{ path('app_attestation_show', {'id': attestation.id}) }}" style="color:#0071BC;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+</svg></a>
+                 
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun Pièce à été demandé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+{% endblock %}

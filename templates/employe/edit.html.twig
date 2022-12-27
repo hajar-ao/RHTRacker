@@ -1,0 +1,25 @@
+{% extends 'navbar.html.twig' %}
+
+{% block title %}RHTracker{% endblock %}
+
+{% block body %}
+<style>
+
+</style>
+<div class="card-header">
+
+									<h4 class="card-title mb-0">Modifier Employé</h4>
+                                    <p style="color:red">Tous les champs sans Obligatoire (*)</p>
+								
+
+ <div class="col text-right">
+    {{ include('employe/_delete_form.html.twig') }}
+    </div></div><br>
+
+    {{ include('employe/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    
+
+<br>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}RH Tracker{% endblock %}</title>
+          <link rel="icon" href="{{asset("assets/images/iconRh.ico")}}">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            	<link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
+                	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        {% endblock %}
+
+        {% block javascripts %}
+        <script src="https://kit.fontawesome.com/421830358d.js" crossorigin="anonymous"></script>
+            {{ encore_entry_script_tags('app') }}
+            <script src="{{asset("assets/js/jquery.min.js")}}"></script>
+  <script src="{{asset("assets/js/popper.js")}}"></script>
+  <script src="{{asset("assets/js/bootstrap.min.js")}}"></script>
+  <script src="{{asset("assets/js/main.js")}}"></script>
+        {% endblock %}
+    </head>
+    <body>
+    
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-white rounded"  style="background-color:#EDF2F4;">
+    <img src="{{asset("assets/images/IconNav.png")}}" style="width:4%;"/><a class="navbar-brand" href="{{ path('app_attestation_index') }}" style="font-family: 'Pacifico', cursive;">RHTracker</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+  
+     
+       <li class="nav-item ">
+        <a class="nav-link" href="{{ path('app_attestation_new')}}">Demande des documents administratif<span class="sr-only">(current)</span></a>
+      </li>
+    
+      
+    </ul>
+        
+    <form class="form-inline my-2 my-lg-0">
+    <ul class="navbar-nav mr-auto">
+ <li class="nav-item dropdown">
+        <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <b>User:</b>  {{app.user.Nom}} {{app.user.Prenom}} 
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ path('app_logout') }}">Se Déconnecter</a>
+        </div>
+      </li>
+    </ul>
+
+    </form>
+  </div>
+</nav>
+        {% block body %}{% endblock %}
+    </body>
+</html>
